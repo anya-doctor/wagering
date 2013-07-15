@@ -24,7 +24,7 @@ def process_game(game):
 	start_time = datetime.datetime.fromtimestamp(int(start_time))
 	eastern = timezone("US/Eastern")
 	start_time = eastern.localize(start_time)
-	game["start_time"] = start_time
+	game_dict["start_time"] = start_time
 
 
 	score_a = game["home"]["result"]
@@ -33,7 +33,7 @@ def process_game(game):
 	if is_finished:
 		if score_a == score_b:
 			outcome = "Drawn"
-		elif score_a > score_b:
+		elif int(score_a) > int(score_b):
 			outcome = "Won"
 		else:
 			outcome = "Lost"
